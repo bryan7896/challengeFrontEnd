@@ -5,7 +5,7 @@ const Search: React.FC = () => {
     return (
         <div>
             <h1>Search Component</h1>
-            <button>Click me</button>
+            <button type="button" className="btn btn-primary">Primary</button>
         </div>
     );
 };
