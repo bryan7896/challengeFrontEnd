@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-interface GeneralState {
+export interface GeneralState {
     search: string;
     response: any;
 }
