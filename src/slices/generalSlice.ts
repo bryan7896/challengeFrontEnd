@@ -1,23 +1,33 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-export interface GeneralState {
-    search: string;
-    response: any;
-}
+import { servicesApi } from '../api/services';
+import { GeneralState } from './generalSlice.types';
 
 const initialState: GeneralState = {
     search: '',
-    response: null,
+    petsList: [],
+    details: undefined,
 };
 
 const generalSlice = createSlice({
     name: 'general',
     initialState,
     reducers: {
-        setSearch: (state, action) => { state.search = action.payload },
-        setResponse: (state, action) => { state.response = action.payload },
+        setSearch: (state, { payload }) => {
+            state.search = payload;
+        },
+        setPetsList: (state, { payload }) => {
+            state.petsList = payload;
+        },
+        setDetails: (state, { payload }) => {
+            state.details = payload;
+        },
+    },
+    extraReducers(builder) {
+        builder.addMatcher(servicesApi.endpoints.pets.matchFulfilled, (state, { payload }) => {
+            state.petsList = payload ?? []
+        })
     },
 });
 
-export const { setSearch, setResponse } = generalSlice.actions;
+export const { setSearch, setPetsList, setDetails } = generalSlice.actions;
 export default generalSlice.reducer;

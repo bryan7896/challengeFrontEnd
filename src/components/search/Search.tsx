@@ -1,10 +1,11 @@
 // src/components/Search.tsx
 import './styles.scss'
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { setSearch } from '../../slices/generalSlice';
 import { useNavigate } from 'react-router-dom';
+import ServicesApi from '../../api/services';
 
 interface FormData {
     search: string;
@@ -14,15 +15,22 @@ const Search: React.FC = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    const [get_pets] = ServicesApi.usePetsMutation();
+
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm<FormData>();
 
+    const getPets = useCallback(async (search: string) => {
+        await get_pets(search);
+        navigate('/results');
+    }, [get_pets])
+
     const onSubmit: SubmitHandler<FormData> = (data) => {
         dispatch(setSearch(data.search));
-        navigate('/results');
+        getPets(data.search)
     };
 
     return (
