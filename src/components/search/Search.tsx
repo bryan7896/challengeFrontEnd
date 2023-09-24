@@ -1,4 +1,3 @@
-// src/components/Search.tsx
 import './styles.scss'
 import React, { useCallback } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
@@ -35,6 +34,7 @@ const Search: React.FC = () => {
 
     return (
         <div className="containerSearch">
+            <h1 className="d-flex justify-content-center fontText">Búsqueda de Mascotas</h1>
             <form
                 onSubmit={handleSubmit(onSubmit)}
                 style={{ maxWidth: '700px', margin: '0 auto' }}
@@ -47,7 +47,7 @@ const Search: React.FC = () => {
                         type="text"
                         id="search"
                         {...register('search', { required: true })}
-                        className="form-control input-search" // Aplica la clase para el campo de entrada
+                        className="form-control input-search"
                     />
                     {errors.search && (
                         <div className="mt-2 text-danger fontText">Este campo es requerido.</div>
@@ -56,7 +56,7 @@ const Search: React.FC = () => {
                 <div className="d-grid" style={{ maxWidth: '300px', margin: '0 auto' }}>
                     <button
                         type="submit"
-                        className="btn button-search fontText" // Aplica la clase para el botón
+                        className="btn button-search fontText"
                     >
                         Buscar
                     </button>
@@ -67,4 +67,3 @@ const Search: React.FC = () => {
 };
 
 export default Search;
-

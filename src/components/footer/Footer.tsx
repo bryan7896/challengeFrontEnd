@@ -1,4 +1,3 @@
-// src/components/Footer.tsx
 import './styles.scss'
 import React, { useEffect, useState } from 'react';
 import { ReactComponent as IconoSvg } from '../../assets/iconSupport.svg';
@@ -30,7 +29,7 @@ const Footer: React.FC<FooterProps> = ({ phoneNumber, name }) => {
         <footer className="text-center text-lg-start bg-light text-muted fixed-bottom colorBorder">
             <section className="d-flex justify-content-center justify-content-lg-between pt-2" style={{ paddingInline: 20 }}>
                 <div className="me-5 d-none d-lg-block">
-                    <span className='fontText'>Página de presentación de prueba de ingreso FICOHSA:</span>
+                    <h4 className='fontText'>Página de presentación de prueba de ingreso FICOHSA:</h4>
                 </div>
                 <span>{horaActual}</span>
             </section>
@@ -38,9 +37,9 @@ const Footer: React.FC<FooterProps> = ({ phoneNumber, name }) => {
                 <div className="text-center">
                     <IconoSvg width={40} height={40} />
                     <div className="text-center">
-                        <h6 className="text-uppercase fw-bold mb-1">
+                        <h5 className="text-uppercase fw-bold mb-1">
                             <i className="fas fa-gem me-3 text-secondary fontText"></i>{name}
-                        </h6>
+                        </h5>
                         <p><i className="fas fa-phone text-secondary fontText"></i> {phoneNumber}</p>
                     </div>
                 </div>

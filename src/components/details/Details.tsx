@@ -1,4 +1,3 @@
-// src/components/Details.tsx
 import './styles.scss'
 import React from 'react';
 import { useSelector } from 'react-redux';
@@ -9,22 +8,25 @@ const Details: React.FC = () => {
 
     return (
         <div>
-            <h2 className='d-flex justify-content-center mt-2'>{detailsValue?.breed}</h2>
+            <h1 className='d-flex justify-content-center mt-2'>{detailsValue?.breed}</h1>
             <p className='d-flex justify-content-center'>{detailsValue?.details}</p>
 
             <div className="container">
                 <img
                     src={detailsValue?.urlImg}
-                    alt="Descripción de la imagen"
+                    alt="Imágen de la mascota buscada"
                     className="img-fluid"
                     style={{ borderRadius: 20, maxWidth: 400 }}
-                />
+                />  
                 <div className="ml-3 content">
+                    <h3 className='d-flex justify-content-center'>Información sobre la raza</h3>
                     <p className='d-flex justify-content-center'>Peso: {detailsValue?.weight}</p>
-                    <p className='d-flex justify-content-center text-decoration-underline'>Altura</p>
+                    <h4 className='d-flex justify-content-center text-decoration-underline'>Altura</h4>
                     <p className='d-flex justify-content-center'>Altura máxima macho: {detailsValue?.maleHeight}</p>
                     <p className='d-flex justify-content-center'>Altura máxima hembra: {detailsValue?.femaleHeight}</p>
+                    <h4 className='d-flex justify-content-center text-decoration-underline'>Colores</h4>
                     <p className='d-flex justify-content-center'>Colores: {detailsValue?.colors}</p>
+                    <h4 className='d-flex justify-content-center text-decoration-underline'>Origen</h4>
                     <p className='d-flex justify-content-center'>Origen: {detailsValue?.origin}</p>
                 </div>
             </div>

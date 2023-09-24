@@ -1,4 +1,3 @@
-// src/components/Results.tsx
 import './styles.scss'
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -25,7 +24,7 @@ const Results: React.FC = () => {
             <h1 className='d-flex justify-content-center fontText'>
                 Resultados de la búsqueda "{searchValue}"
             </h1>
-            <div className='justify-content-center mb-25 row'>
+            <div className='mb-25 row' style={{margin: 0}}>
                 {petsList.map((pet: PetsList, i: number) => (
                     <Card pet={pet} key={`btn-${i}`} onClick={() => details(pet)} />
                 ))}
